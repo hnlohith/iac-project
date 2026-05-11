@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: iac-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: iac-app
+
+  template:
+    metadata:
+      labels:
+        app: iac-app
+
+    spec:
+      containers:
+      - name: iac-container
+        image: iac-app:latest
+        imagePullPolicy: Never
